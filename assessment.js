@@ -14,7 +14,7 @@ function removeAllChildren(element) {
         element.removeChild(element.firstChild);
     }
 }
-assesmentButton.onclick = () => {
+assessmentButton.onclick = () => {
     const userName = userNameInput.value;
     if (userName.length === 0) {
         // 名前が空の場合は処理を終了する
@@ -28,7 +28,7 @@ assesmentButton.onclick = () => {
     resultDivided.appendChild(header);
 
     const paragraph = document.createElement('p');
-    const result = assesment(userName);
+    const result = assessment(userName);
     paragraph.innerText = result;
     resultDivided.appendChild(paragraph);
 
@@ -54,7 +54,7 @@ assesmentButton.onclick = () => {
 
 userNameInput.onkeydown = event => {
     if(event.key === 'Enter') {
-        assesmentButton.onclick();
+        assessmentButton.onclick();
     }
 }
 
@@ -83,7 +83,7 @@ const answers = [
  * @param {string} userName ユーザの名前
  * @return {string} 診断結果
  */
-function assesment (userName) {
+function assessment (userName) {
     // 全文字のコード番号を取得してそれを足し合わせる
     let sumOfCharCord = 0;
     for(let i = 0; i < userName.length; i++) {
@@ -106,6 +106,6 @@ console.assert(
 
 
 console.assert(
-    assesment('太郎') === assesment('太郎'),
+    assessment('太郎') === assessment('太郎'),
     '入力が同じ名前なら同じ診断結果を出力する処理が正しくありません'
 )
